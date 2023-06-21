@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Of Object</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <p data-text="Array of Object">Array of Object</p>
+    </header>
+
+    <div class="questions">
+
+        <div class="mainques">
+            <span style="color: red;">Question: </span>
+            <p>                
+                let studentRecords = [{name: 'John', id: 123, marks: 98 },<br>
+                {name: 'Baba', id: 101, marks : 23 },<br>
+                {name: 'yaga', id: 200, marks : 45 },<br>
+                {name: 'Wick', id: 115, marks : 75 }] <br>
+            </p>
+        </div>
+
+        <!-- ********************************* Question1 ***************************** -->
+        <div class="quesno">
+            <p class="ques"><span class="span">Q1. </span>We are interested in retrieving only the students names; all
+                the names should be in caps.
+            </p>
+            <div class="ans seeCode">
+                <button onclick="seeHide1(this)">See Code</button>
+                <pre class="code" id="Code1">
+
+    let capsName = []
+    studentRecords.forEach((element)=>{
+        capsName.push(element.name.toUpperCase())
+    })
+    console.log(capsName)
+                </pre>
+            </div>
+            <div class="ans"><span class="output">Output : </span>['JOHN', 'BABA', 'YAGA', 'WICK']</div>
+            <hr size="3px" color="gray">
+        </div>
+
+        <!-- ********************************* Question2 ***************************** -->
+        <div class="quesno">
+            <p class="ques"><span class="span">Q2. </span>Suppose we have the same dataset as above but this time we
+                want to get the details of students who scored more than 50 marks.
+            </p>
+            <div class="ans seeCode">
+                <button onclick="seeHide2(this)">See Code</button>
+                <pre class="code" id="Code2">
+
+    let marks = studentRecords.filter((x)=>x.marks>50)
+    console.log(marks)
+                </pre>
+            </div>
+            <div class="ans"><span class="output">Output : </span>[{name: 'John', id: 123, marks: 98 },{name: 'Wick',
+                id: 115, marks: 75 }]
+            </div>
+            <hr size="3px" color="gray">
+        </div>
+
+        <!-- ********************************* Question3 ***************************** -->
+        <div class="quesno">
+            <p class="ques"><span class="span">Q3. </span>Retrieve the details of students who scored more than 50 marks
+                and have IDs greater than 120.
+            </p>
+            <div class="ans seeCode">
+                <button onclick="seeHide3(this)">See Code</button>
+                <pre class="code" id="Code3">
+
+    let marksId = studentRecords.filter((x)=>x.marks>50 && x.id>120)
+    console.log(marksId)
+                </pre>
+            </div>
+            <div class="ans"><span class="output">Output : </span>[{name: 'John', id: 123, marks: 98 }]</div>
+            <hr size="3px" color="gray">
+        </div>
+
+        <!-- ********************************* Question4 ***************************** -->
+        <div class="quesno">
+            <p class="ques"><span class="span">Q4. </span>Consider the same scenario we have discussed above, but this
+                time we would like to know the sum total of the marks of the students.
+            </p>
+            <div class="ans seeCode">
+                <button onclick="seeHide4(this)">See Code</button>
+                <pre class="code" id="Code4">
+
+    let sum = 0
+    studentRecords.forEach((element)=>{
+        sum += element.marks
+    })
+    console.log("Total :",sum)
+                </pre>
+            </div>
+            <div class="ans"><span class="output">Output : </span>Total : 241</div>
+            <hr size="3px" color="gray">
+        </div>
+
+        <!-- ********************************* Question5 ***************************** -->
+        <div class="quesno">
+            <p class="ques"><span class="span">Q5. </span>This time we want to get only the names of the students who
+                scored more than 50 marks from the same dataset used above.
+            </p>
+            <div class="ans seeCode">
+                <button onclick="seeHide5(this)">See Code</button>
+                <pre class="code" id="Code5">
+
+    let name = []
+    studentRecords.forEach((element)=>{
+        if(element.marks>50)
+            name.push(element.name)
+    })
+    console.log(name)
+                </pre>
+            </div>
+            <div class="ans"><span class="output">Output : </span>[ 'John', 'Wick' ]</div>
+            <hr size="3px" color="gray">
+        </div>
+
+        <!-- ********************************* Question6 ***************************** -->
+        <div class="quesno">
+            <p class="ques"><span class="span">Q6. </span>This time we are required to print the sum of marks of the
+                students with id > 120.
+            </p>
+            <div class="ans seeCode">
+                <button onclick="seeHide6(this)">See Code</button>
+                <pre class="code" id="Code6">
+
+    let sumMarks = 0
+    studentRecords.forEach((element)=>{
+        if(element.id > 120)
+            sumMarks += element.marks
+    })
+    console.log("Sum of Marks :",sumMarks)
+                </pre>
+            </div>
+            <div class="ans"><span class="output">Output : </span>Sum of Marks : 143</div>
+            <hr size="3px" color="gray">
+        </div>
+
+        <!-- ********************************* Question7 ***************************** -->
+        <div class="quesno">
+            <p class="ques"><span class="span">Q7. </span>This time we are required to print the total marks of the
+                students with marks greater than 50 after a grace of 15 marks has been added to those students who
+                scored less than 50.
+            </p>
+            <div class="ans seeCode">
+                <button onclick="seeHide7(this)">See Code</button>
+                <pre class="code" id="Code7">
+
+    let sumAfterGrace = 0
+    studentRecords.forEach((element)=>{
+        if(element.marks < 50)
+            element.marks += 15
+        if(element.marks > 50)
+            sumAfterGrace += element.marks
+    })
+    console.log("Sum After Grace :",sumAfterGrace)
+                </pre>
+            </div>
+            <div class="ans"><span class="output">Output : </span>Sum After Grace : 233</div>
+            <hr size="3px" color="gray" >
+        </div>
+
+        <!-- ********************************* Question8 ***************************** -->
+        <div class="quesno">
+            <p class="ques"><span class="span">Q8. </span>Create 6 objects , each object will have name, class, roll no
+                as properties. Store these objects in an array of objects.
+            </p>
+            <div class="ans seeCode">
+                <button onclick="seeHide8(this)">See Code</button>
+                <pre class="code" id="Code8">
+
+    const obj = {
+        obj1: {name: "John",class: 11,rollno: 20},
+        obj2: {name: "Wick",class: 10,rollno: 5},
+        obj3: {name: "Percy",class: 11,rollno: 2},
+        obj4: {name: "Jackson",class: 12,rollno: 26},
+        obj5: {name: "Tony",class: 12,rollno: 16},
+        obj6: {name: "Stark",class: 19,rollno: 25}
+    }
+    
+    let arr = []
+    for(let key in obj)
+        arr.push(obj[key])
+        
+    console.log(arr)
+                </pre>
+            </div>
+            <div class="ans" id="quesEight"><span class="output">Output : </span>[
+                { name: 'John', class: 11, rollno: 20 },<br>
+                { name: 'Wick', class: 10, rollno: 5 },<br>
+                { name: 'Percy', class: 11, rollno: 2 },<br>
+                { name: 'Jackson', class: 12, rollno: 26 },<br>
+                { name: 'Tony', class: 12, rollno: 16 },<br>
+                { name: 'Stark', class: 19, rollno: 25 }
+              ]</div>
+        </div>
+
+    </div>
+
+    <script src="script.cjs"></script>
+
+</body>
+
+</html>
